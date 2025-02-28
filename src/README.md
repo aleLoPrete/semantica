@@ -15,6 +15,17 @@
 - Performs nearest-neighbor search using FAISS.
 - Returns the top K most similar notes.
 
+
+## 📚 Dependencies
+
+Package	Purpose
+
+- `faiss-cpu`	Efficient vector search engine
+- `sentence-transformers`	Generates embeddings from markdown text
+- `typer`	Elegant command-line interface
+- `rich` Beautiful CLI output
+- `pyyaml`	Parses YAML metadata from markdown notes
+
 ```mermaid
 graph TD
 	subgraph Indexing
@@ -33,14 +44,3 @@ graph TD
 		F --> H
 	end
 ```
-
-## 📚 Dependencies
-
-Package	Purpose
-
-- `faiss-cpu`	Efficient vector search engine
-- `sentence-transformers`	Generates embeddings from markdown text
-- `typer`	Elegant command-line interface
-- `rich` Beautiful CLI output
-- `pyyaml`	Parses YAML metadata from markdown notes
-
