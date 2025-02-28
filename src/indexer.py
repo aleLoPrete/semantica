@@ -3,13 +3,15 @@ import json
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
+
 import utils
+from config import NOTES_FOLDER, FAISS_INDEX_PATH, METADATA_PATH, EMBEDDING_MODEL
 
 def build_index(
-    notes_folder='./notes',
-    index_path='faiss_index.index',
-    mapping_path='metadata_mapping.json',
-    model_name='all-MiniLM-L6-v2'
+    notes_folder=NOTES_FOLDER,
+    index_path=FAISS_INDEX_PATH,
+    mapping_path=METADATA_PATH,
+    model_name=EMBEDDING_MODEL
 ):
     """
     Build a FAISS index from Markdown notes.

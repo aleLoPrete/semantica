@@ -1,9 +1,11 @@
 import typer
+import os
 from rich.panel import Panel
 from rich.console import Console
 from rich.table import Table
-import indexer
+import indexer 
 import searcher
+from config import NOTES_FOLDER
 
 app = typer.Typer()
 console = Console()
@@ -52,10 +54,10 @@ def interactive(
     Launch an interactive search session. Type your query, see the results, and repeat.
     Type 'exit' or 'quit' to end the session.
     """
-    console.print(Panel("[bold green]Interactive Search Mode[/bold green]", expand=True))
+    console.print(Panel("[bold red]>>> [blue]S e m à n t i c a[/blue] <<<[/bold red]", expand=False))
     while True:
         # Use console.input to render the prompt with Rich markup
-        query = console.input("[bold blue]>> [/bold blue]")
+        query = console.input(f"[bold blue]Search inside [green]{os.path.basename(NOTES_FOLDER)}[/green] >> [/bold blue]")
         if query.strip().lower() in ("exit", "quit"):
             console.print("[bold red]Exiting interactive search mode.[/bold red]")
             break

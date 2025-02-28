@@ -3,7 +3,9 @@ import re
 import markdown
 import yaml
 
-def list_markdown_files(folder_path='./notes'):
+from config import NOTES_FOLDER
+
+def list_markdown_files(folder_path=NOTES_FOLDER):
     """
     Recursively scan the given folder and return a list of Markdown (.md) file paths.
     """

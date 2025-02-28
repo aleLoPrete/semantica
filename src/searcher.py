@@ -3,10 +3,11 @@ import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
-# These constants should match the ones used in indexer.py.
-INDEX_PATH = 'faiss_index.index'
-MAPPING_PATH = 'metadata_mapping.json'
-MODEL_NAME = 'all-MiniLM-L6-v2'
+from config import FAISS_INDEX_PATH, METADATA_PATH, EMBEDDING_MODEL
+
+#INDEX_PATH = 'faiss_index.index'
+#MAPPING_PATH = 'metadata_mapping.json'
+#MODEL_NAME = 'all-MiniLM-L6-v2'
 
 def search(query, k=5):
     """
@@ -20,14 +21,14 @@ def search(query, k=5):
         list of dict: Each dict contains 'file_path', 'metadata', and 'score'.
     """
     # Load the FAISS index from disk.
-    index = faiss.read_index(INDEX_PATH)
+    index = faiss.read_index(FAISS_INDEX_PATH)
 
     # Load the metadata mapping (keys are stored as strings in JSON).
-    with open(MAPPING_PATH, 'r', encoding='utf-8') as f:
+    with open(METADATA_PATH, 'r', encoding='utf-8') as f:
         mapping = json.load(f)
 
     # Load the embedding model.
-    model = SentenceTransformer(MODEL_NAME)
+    model = SentenceTransformer(EMBEDDING_MODEL)
 
     # Compute the embedding for the query.
     query_embedding = model.encode([query])
