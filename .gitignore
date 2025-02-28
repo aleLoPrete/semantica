@@ -1,4 +1,5 @@
 notes/
+data/
 *.index
 metadata_mapping.json
 __pycache__
