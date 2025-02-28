@@ -34,45 +34,27 @@ pip install -r requirements.txt
 > [!warning] I tested only faiss-cpu, as present in the requirements, if you want to try with faiss-gpu have to install it from source.
 
 
-## 🏗️ Usage
+## Usage
 
 ### Build the Index
 
 Before searching, you need to index your markdown files. This processes all .md files in the ./notes folder and builds a FAISS index.
 
 ```bash
-python cli.py index --folder ./notes
-```
-
-
-### One shot Search
-
-Search directly from the CLI with a one-shot query:
-
-```bash
-python cli.py search --query "encryption algorithms" --k 5
-```
-
-Example Output:
-
-```bash
-Searching for: encryption algorithms
-┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━┓
-┃ File Path                                ┃ Score ┃
-┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━┩
-│ notes/crypto.md                          │ 0.87  │
-│ notes/encryption.md                      │ 0.83  │
-│ notes/secure-comms.md                    │ 0.79  │
-└──────────────────────────────────────────┴───────┘
+cd src
+python cli.py index --folder ../notes
 ```
 
 ### Interactive Search
+
+![Search Demo](demo.gif)
 
 Launch an interactive search session:
 
 ```bash
 python cli.py interactive
 ``` 
+
 This lets you continuously enter search terms and see results dynamically. Type exit or quit to exit.
 
 ## 🔧 Configuration & Customization
