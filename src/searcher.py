@@ -2,12 +2,7 @@ import json
 import faiss
 import numpy as np
 from sentence_transformers import SentenceTransformer
-
 from config import FAISS_INDEX_PATH, METADATA_PATH, EMBEDDING_MODEL
-
-#INDEX_PATH = 'faiss_index.index'
-#MAPPING_PATH = 'metadata_mapping.json'
-#MODEL_NAME = 'all-MiniLM-L6-v2'
 
 def search(query, k=5):
     """

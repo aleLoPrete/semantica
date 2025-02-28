@@ -7,7 +7,7 @@ from config import NOTES_FOLDER
 
 def list_markdown_files(folder_path=NOTES_FOLDER):
     """
-    Recursively scan the given folder and return a list of Markdown (.md) file paths.
+    Recursively scan the given folder and return a list of Markdown file paths.
     """
     markdown_files = []
     for root, dirs, files in os.walk(folder_path):
@@ -53,9 +53,6 @@ def parse_markdown_file(file_path):
 def markdown_to_plain_text(markdown_text):
     """
     Convert Markdown text to plain text.
-    
-    This function first converts Markdown to HTML using the 'markdown' package,
-    then removes HTML tags to produce plain text.
     
     Args:
         markdown_text (str): Raw Markdown content.

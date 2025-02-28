@@ -7,9 +7,9 @@ Semantic search (FAISS) for markdown notes.
 ## 🚀 Features
 
 - **Similarity search** over a folder of markdown files.
-- **Supports for in-note YAML metadata** - As used in [Obsidian.md](htps://obsidian.md).
+- **Supports in-note YAML metadata** - As used in [Obsidian.md](htps://obsidian.md).
 - **Beautifil CLI**.
-- **Choose your embedding model** (default: `all-MiniLM-L6-v2`).  
+- **Choose your embedding model** - default: `all-MiniLM-L6-v2`.  
 
 ## 📌 Installation
 
