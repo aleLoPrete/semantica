@@ -1,18 +1,17 @@
-# 📝 Semàntica
+# Semàntica
 
-Semantic earch(FAISS) of markdown notes.
+Similarity search of personal markdown notes.
 
-A fast, efficient, and visually appealing **command-line search tool** for markdown notes.  
-This CLI leverages **FAISS** for similarity search, **SentenceTransformers** for embeddings, and **Typer + Rich** for an interactive, user-friendly interface.
+> "Totally an overkill"
+
+**FAISS** for similarity search, **SentenceTransformers** for embeddings, and **Typer + Rich** for the CLI.
 
 ## 🚀 Features
 
-✅ **Fast semantic search** over a folder of markdown (`.md`) files.  
-✅ **Supports YAML metadata** extraction for richer context in search results.  
-✅ **Interactive search mode** with a beautiful CLI interface using `Typer` & `Rich`.  
-✅ **Customizable embeddings model** (default: `all-MiniLM-L6-v2`).  
-✅ **Optimized FAISS indexing** for efficient nearest-neighbor retrieval.  
-
+✅ **Similarity search** over a folder of markdown (`.md`) files. Honestly not very fast.
+✅ **Supports YAML metadata** extraction for richer context in search results. Because I take my notes in [Obsidian.md](htps://obsidian.md).
+✅ **Beautifil CLI**.  
+✅ **Choose you embedding** (default: `all-MiniLM-L6-v2`).  
 
 ## 📌 Installation
 
@@ -31,7 +30,7 @@ cd markdown-search-cli
 pip install -r requirements.txt
 ```
 
-> [!warning] I tested only faiss-cpu, as present in the requirements, if you want to try with faiss-gpu have to install it from source.
+> [!WARNING] Tested only with `faiss-cpu`, as present in the requirements, if you want to try with faiss-gpu have to install it from source.
 
 
 ## Usage
@@ -49,22 +48,24 @@ python cli.py index --folder ../notes
 
 ![Search Demo](demo.gif)
 
-Launch an interactive search session:
+Launch an interactive search session. Sets `--k` to the number of item shown per search.
 
 ```bash
-python cli.py interactive
+python cli.py interactive --k 10
 ``` 
 
-This lets you continuously enter search terms and see results dynamically. Type exit or quit to exit.
+## Configuration & Customization
 
-## 🔧 Configuration & Customization
+### Configuration
 
-### ✅ Change the Embeddings Model
-By default, the project uses all-MiniLM-L6-v2 from sentence-transformers.
-To change the model, modify searcher.py:
+Change the `config.py` file in `/src`.
+
+### Embeddings Model
+
+By default, the project uses all-MiniLM-L6-v2 from sentence-transformers. To change the model, modify `config.py`:
 
 ```python
-MODEL_NAME = "sentence-transformers/all-mpnet-base-v2"  # Example: more powerful model
+EMBEDDING_MODEL = "sentence-transformers/all-mpnet-base-v2"
 ```
 
 Other great models:
@@ -74,35 +75,7 @@ Other great models:
 - multi-qa-MiniLM-L6-dot-v1 (optimized for QA)
 - nomic-ai/nomic-embed-text-v1 (great for large datasets)
 
-Find more models here: Hugging Face Model Hub
-
-## 🏗️ How It Works (Technical Overview)
-
-### Indexing `indexer.py`
-
-- Reads all .md files from the target folder.
-- Extracts content and optional YAML metadata.
-- Converts text into embeddings using SentenceTransformers.
-- Stores embeddings in a FAISS index (faiss_index.index).
-- Saves metadata mappings (metadata_mapping.json).
-
-### Searching `searcher.py`
-
-- Loads the FAISS index and metadata.
-- Embeds the search query.
-- Performs nearest-neighbor search using FAISS.
-- Returns the top K most similar notes.
-
-
-### 📚 Dependencies
-
-Package	Purpose
-
-- `faiss-cpu`	Efficient vector search engine
-- `sentence-transformers`	Generates embeddings from markdown text
-- `typer`	Elegant command-line interface
-- `rich` Beautiful CLI output
-- `pyyaml`	Parses YAML metadata from markdown notes
+More models here: [Hugging Face Model Hub](https://huggingface.co/docs/hub/models-the-hub)
 
 ## 🛠️ Troubleshooting
 
@@ -124,18 +97,11 @@ python cli.py index --folder ./notes
 pip install -r requirements.txt
 ```
 
-## 👥 Contributing
-
-🚀 PRs are welcome! If you have ideas for:
-
-- More efficient indexing/searching
-- Improved metadata handling
-- GUI enhancements
-- Feel free to open an issue or submit a pull request.
-
 # ⚖️ License
+
 This project is licensed under the MIT License.
 See the full license in LICENSE.
 
-# ⭐ Star This Project!
+# Star This Project!
+
 If you find this project useful, please consider starring ⭐ it on GitHub!
