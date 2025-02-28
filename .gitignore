@@ -1,0 +1,5 @@
+notes/
+*.index
+metadata_mapping.json
+__pycache__
+.venv
