@@ -157,7 +157,3 @@ See the full license in LICENSE.
 
 # ⭐ Star This Project!
 If you find this project useful, please consider starring ⭐ it on GitHub!
-
-```bash
-git clone https://github.com/YOUR_USERNAME/markdown-search-cli.git
-```
